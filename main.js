@@ -9,6 +9,19 @@ $(document).ready(function(){
 
   $('.cm-header-container').css('height', headerHt);
 
+  //Mega Menu
+  $('.cm-menu-wrapper > ul > li.cm-mega-menu .cm-submenu-lv-1 > li span').click(function(){
+      let mmId = $(this).attr('data-mm-id');
+      $(this).addClass('mm-active');
+      $(this).siblings().removeClass('mm-active');
+      let selectedMM = $(this).parent('.cm-menu-heads').siblings('.cm-menu-links').children('.cm-mm-' + mmId);
+
+      console.log(selectedMM.hasClass('cm-mm-' + mmId));
+
+      selectedMM.addClass('mm-active');
+      selectedMM.siblings().removeClass('mm-active');
+  })
+
   //Mobile Menu Start
   $(".custom-menu-primary ul li.cm-item-has-children > a").after(' <div class="child-trigger"><i class="fa fa-angle-down"></i></div>');
 
@@ -83,14 +96,6 @@ $(document).ready(function(){
     fade: true,
     dots: true
   });
-  
-
-  //Test Click
-  $('.cm-header-cta').click(function(e){
-    e.preventDefault();
-    $('.cm-home-achievement-container').toggleClass('active');
-  });
-
 
   //Animated Circle Start
 
