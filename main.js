@@ -1,3 +1,6 @@
+//Init Scroll transitions
+AOS.init();
+
 $(document).ready(function(){
 
   //Set Header height
@@ -58,9 +61,9 @@ $(document).ready(function(){
   //Homepage Hero Slider
   $('.cm-hero-slider-container').slick({
     infinite: true,
+    fade: true,
     autoplay: true,
     autoplaySpeed: 5000,
-    fade: true,
   });
 
   //Homepage Services Slider
@@ -149,6 +152,18 @@ $(document).ready(function(){
   //Throttling SectionInView Fn
   const sectionInViewThrot = throttleFn(sectionInView, 300);
 
+  //Show Tech Icons
+
+  $('.cm-more-tech span').click(function(){
+    const techBtn = $(this);
+
+    $('.cm-home-tech-container .cm-tech-item').slice(-3).each(function(){
+      $(this).removeClass('tech-hidden');
+    });
+
+    $(this).parent().remove();
+  })
+
   //Window Scroll Fn
   $(window).scroll(function(){
     if($(document).scrollTop() > headerTopHt) {
@@ -162,5 +177,9 @@ $(document).ready(function(){
   });
 
   $(window).resize(sectionInViewThrot);
+
+  AOS.init({
+    once: true
+  });
 
 })
