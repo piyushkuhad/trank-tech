@@ -176,6 +176,14 @@ $(document).ready(function(){
     }
 
     sectionInViewThrot();
+
+    //Back to top show/hide
+    if ($(this).scrollTop()) {
+      $('#backToTop').fadeIn();
+    } else {
+        $('#backToTop').fadeOut();
+    }
+
   });
 
   $(window).resize(sectionInViewThrot);
@@ -193,6 +201,9 @@ $(document).ready(function(){
     genBgImg();
   }
 
+  $("#backToTop").click(function() {
+    $("html, body").animate({scrollTop: 0}, 1000);
+ });
 
   //Initialise Scroll transitions
   AOS.init({
