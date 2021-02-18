@@ -183,6 +183,20 @@ $(document).ready(function(){
 
   $(window).resize(sectionInViewThrot);
 
+  //Convert slider images to background img
+  function genBgImg() {
+    $('.cm-home-slide').each(function(){
+      let imgPath = $(this).find('.cm-slider-img').attr('src');
+
+      $(this).css('background-image', `url(${imgPath})`);
+    })
+  }
+
+  if(window.innerWidth < 480) {
+    genBgImg();
+  }
+
+
   AOS.init({
     once: true
   });
