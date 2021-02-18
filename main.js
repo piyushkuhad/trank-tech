@@ -1,6 +1,3 @@
-//Init Scroll transitions
-AOS.init();
-
 $(document).ready(function(){
 
   //Set Header height
@@ -197,6 +194,7 @@ $(document).ready(function(){
   }
 
 
+  //Initialise Scroll transitions
   AOS.init({
     once: true
   });
